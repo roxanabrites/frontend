@@ -1,0 +1,84 @@
+
+
+
+.header{
+    min-height: 53rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+@media (min-width: 768px){
+    .header{
+        min-height: 57rem;
+    }
+}
+.header h1{
+    color: var(--secondary);
+    padding-bottom: 2rem;
+}
+.header h3{
+    color: var(--secondary);
+}
+.header-nav{
+    background-color: var(--secondary-85);
+    text-align: center;
+    margin-bottom: 13rem;
+}
+
+.justify-end-to-center{
+    display: flex;
+    justify-content: flex-end;
+}
+@media (min-width: 642px){
+    .justify-end-to-center{
+        justify-content: center;
+    }
+}
+
+/* Header Icon lines*/
+.icon-lines{
+    display:inline-block;
+    position:relative;
+    left:6rem;
+  }
+  
+.icon-lines::after,.icon-lines::before{
+    content:"";
+    position:absolute;
+    width:5.3rem;
+    height:.25rem;
+    background-color: var(--primary);
+    top:0.8rem;
+  }
+.icon-lines::before{
+    left: -5.5rem;   
+  }
+.icon-lines::after{
+    left: 4.1rem;   
+  }
+
+
+  
+/*Heading lines*/
+.h2-lines{
+    display:inline-block;
+    position:relative;
+    left:5rem;
+  }
+  
+.h2-lines::after,.h2-lines::before{
+    content:"";
+    position:absolute;
+    width:4.2rem;
+    height:.15rem;
+    background-color: var(--primary);
+    top:1.3rem;
+  }
+.h2-lines::before{
+    left: -5rem;   
+  }
+.h2-lines::after{
+    right: -5rem;   
+  }

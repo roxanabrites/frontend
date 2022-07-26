@@ -1,0 +1,139 @@
+<header id="inicio" class="container-fluid header">
+
+    <!--En esta fila va la barra de navegación-->
+    <div class="row">
+      <div class="col header-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="" alt="Argentina Programa"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+              aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
+  
+                <li class="nav-item">
+                  <a class="nav-link" href="#sobre_mi">Sobre mí</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#habilidades">Habilidades</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#educacion">Educación</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contacto">Contacto</a>
+                </li>
+              </ul>
+              <span class="navbar-text">
+                
+                <!-- Boton Login Modal -->
+                <button type="button" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#LoginForm">
+                  <i class="fa fa-user-lock"></i>
+                </button>
+                
+                <button *ngIf=botl type="text" class="btn-success"> Logueado
+                  <i class="fa fa-user"></i>
+                </button>
+                  
+                <!-- Boton LogOut -->
+                <button type="button" class="btn btn-lg" (click)="logOut()" >
+                  <i class="fa fa-user-slash"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+  
+        </nav>
+      </div>
+    </div>
+  
+    <!--En este contenedor va el texto del header-->
+    <div class="container-lg contenedor" *ngIf="usuario">
+      <div class="row justify-content-start">
+        <div class="col-6">
+          <h1 class="display-1">{{usuario.nombre}} {{usuario.apellido}}</h1>
+        </div>
+        <div class="display-6 icon-lines "><i class="fa-solid fa-code"></i></div> <!-- ¡¡¡ Centrar logo !!! -->
+        <div class="row C">
+          <div class="col-4">
+            <h3 class="display-5">{{usuario.titulo}}</h3>
+          </div>
+        </div>
+      </div>
+  
+      <div class="justify-end-to-center">
+        <a class="btn btn-lg" href="#contacto">Contacto</a>
+      </div>
+  
+    </div>
+  </header>
+  
+  
+  
+  
+  <!-- Modal Login Form -->
+  <div class="modal fade" id="LoginForm" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Login Form -->
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+          <div class="modal-header">
+            <h5 class="modal-title">Login Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="InputEmail" class="form-label">Email<span class="text-danger">*</span></label>
+              <input  type="email" 
+                      class="form-control" 
+                      formControlName="email" 
+                      id="InputEmail"
+                      placeholder="Ingresar Email" 
+                      [ngClass]="{'is-invalid': Email?.errors && Email?.touched}"> <!--Para colorear el box si hay problemas-->
+                    
+              <div *ngIf="Email?.errors && Email?.touched">
+                <p *ngIf="Email?.hasError('required')" class="text-danger">
+                  El email es requerido
+                </p>
+                <p *ngIf="Email?.hasError('email')" class="text-danger">
+                  Formato del email invalido
+                </p>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="InputPassword" class="form-label">Password<span class="text-danger">*</span></label>
+              <input  type="password" 
+                      class="form-control" 
+                      formControlName="password"  
+                      id="InputPassword"
+                      placeholder="Ingresar Password" 
+                      [ngClass]="{'is-invalid': Password?.errors && Password?.touched}"><!--Para colorear el box si hay problemas-->
+                    
+              <div *ngIf="Password?.errors && Password?.touched">
+                <p *ngIf="Password?.hasError('required')" class="text-danger">
+                  El Password es requerido
+                </p>
+                <p *ngIf="Password?.hasError('minlength')" class="text-danger">                <!-- Error con "Password.errors?.minlength" Property 'minlength' comes from an index signature, so it must be accessed with ['minlength'].ngtsc(4111) -->
+                  La contraseña debe tener 8 o mas caracteres.
+                </p>
+              </div>
+            </div>
+            <!--    <div class="mb-3">
+                  <input class="form-check-input" type="checkbox" value="" id="remember" required>
+                  <label class="form-check-label" for="remember">Remember Me</label>
+                  <a href="#" class="float-end">Forgot Password</a>
+                  </div>-->
+  
+            <div class="modal-footer pt-4">
+              <button type="submit" class="btn btn-success mx-auto w-100"
+                [disabled]="Email?.errors || Password?.errors">Login</button>
+            </div>
+            <!--  <p class="text-center">Not yet account, <a href="#">Signup</a></p> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
