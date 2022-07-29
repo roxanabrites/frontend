@@ -1,0 +1,19 @@
+<section id="skill" class="container-fluid background-grey">
+  
+    <h2 class="display-6 mb-3 h2-lines">Habilidades (Aca van Skill mostrados en circulos)</h2>
+    
+    <div class="dashboard" *ngFor="let sk of skill">
+      <svg>
+        <circle class="bg" cx="57" cy="57" r="52" />
+        <text x="40" y="60">{{sk.nombreSk}}</text>
+        <circle class="meter-1" cx="57" cy="57" r="52" />
+      </svg>
+    
+      <!-- <img class="card-img-top" src="{{sk.fotoSk}}" alt="Imagen representativa Skill" >
+      <div class="card-body">
+        
+        <p>{{sk.porcentSk}}</p>
+      </div> -->
+    </div>
+  
+</section>

@@ -1,0 +1,12 @@
+:root{
+    --primary: #F24109;
+    --secondary: #1D243E;
+
+
+    --font: 'Nunito', sans-serif;
+}
+
+
+html{
+    font-family: var(--font);
+}

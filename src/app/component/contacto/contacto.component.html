@@ -1,0 +1,130 @@
+<!--Contact-->
+<section id="contacto" class="container-fluid">
+    <div class="container py-4 contenedor" >
+      <h2 class="display-6 mb-3 h2-lines">Contacto</h2>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card shadow card-height mb-3">
+            <div class="contact-img fs-3">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="card-body mb-3" *ngIf="usuario">
+              <h5 class="card-title text-center fs-3">UBICACIÓN</h5>
+              <p class="card-text text-center fs-5">{{usuario.ubicacion}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card shadow card-height mb-3">
+            <div class="contact-img fs-3">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="card-body mb-3" *ngIf="usuario">
+              <h5 class="card-title text-center fs-3">EMAIL</h5>
+              <p class="card-text text-center fs-5">{{usuario.email}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card shadow card-height mb-3">
+            <div class="contact-img fs-3">
+              <i class="fa-solid fa-hashtag"></i>
+            </div>
+            <div class="card-body mb-3">
+              <h5 class="card-title text-center fs-3">SOCIAL MEDIA</h5>
+              <p class="card-text text-center fs-4">
+                <a href="https://github.com/roxanabrites"><i class="fa-brands fa-github"></i></a>
+                <!--<a href=""><i class="fa-brands fa-linkedin"></i></a>  -->
+                <!--<a href=""><i class="fa-brands fa-instagram"></i></a> -->
+                <!-- <a href=""><i class="fa-brands fa-facebook"></i></a> -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col p-3 shadow mt-3">
+          <h3 class="display-6 mb-3 h3-lines">Si queres contactarme, deja un mensaje</h3>
+
+          <form #FormContact="ngForm" (ngSubmit)="AddContacto(FormContact)">
+            <div class="row g-3 py-3 form-group">
+              <div class="col-md-6 ">
+                <input  class="form-control fs-5"
+                        ngModel 
+                        type="text" 
+                        name="nombrecont"
+                        id="nombrecont"
+                        placeholder="Ingresa tu nombre"
+                        aria-label="Ingresa tu nombre" 
+                        required
+                >
+              </div>
+              
+              <div class="col-md-6">
+                <input  type="email" 
+                        ngModel 
+                        name="emailcont"
+                        id="emailcont"
+                        class="form-control fs-5" 
+                        placeholder="Ingresa tu correo"
+                        aria-label="Ingresa tu correo"
+                        required
+                >
+              </div>
+              <div class="col">
+                <textarea class="form-control fs-5"
+                          type="text"
+                          ngModel 
+                          name="textocont"
+                          id="textocont" 
+                          placeholder="Dejame tus comentarios" 
+                          style="height: 100px" 
+                          required>
+                </textarea>
+              </div>
+            </div>
+            <button type="submit" 
+                    name="submit" 
+                    class="btn btn-lg "
+                    id="add-form-contacto"
+            >Enviar mensaje</button>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div *ngIf="Cboolen == true" class="container py-4 contenedor">
+      <h2 class="display-6 mb-3 h2-lines">Contactos</h2>
+    
+      <ul class="row justify-content-center list-unstyled mt-3">
+        <li class="col-12 card mb-3">
+          <div class="row g-0">
+            <div class="col-12 card mb-3" *ngFor="let Contactos of contacto">
+              <div class="card-body">
+                <h4 class="card-title display-6 text-center">{{Contactos.nombrecont}}</h4>
+                <h6 class="display-10 fs-4">Email de Contacto:</h6>
+                <p class="card-text">{{Contactos.emailcont}}</p>
+                <h6 class="display-10 fs-4">Texto:</h6>
+                <p class="card-text ">{{Contactos.textocont}}</p>
+                <div class="row justify-content-between">
+                  <button type="button" class="btn btn-lg"
+                  (click)="DelContacto(Contactos.idcont)" > Borrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+

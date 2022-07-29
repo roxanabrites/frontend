@@ -89,4 +89,3 @@ export class HeaderComponent implements OnInit {
       return this.botl;  //logueado
   }
 }
-
