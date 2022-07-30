@@ -1,3 +1,3 @@
- export const urlBack:string = "https://brites-portfolio.herokuapp.com" 
-    /* export const urlBack:string = "http://localhost:8080" */
+/*  export const urlBack:string = "https://brites-portfolio.herokuapp.com"  */ 
+ export const urlBack:string = "http://localhost:8080"  
                                        

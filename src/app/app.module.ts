@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
-/* import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'; */
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'; 
 import { EstudiosComponent } from './component/estudios/estudios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -36,7 +36,7 @@ import { PortfolioComponent } from './component/portfolio/portfolio.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-   /*  FontAwesomeModule, */
+    FontAwesomeModule, 
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
