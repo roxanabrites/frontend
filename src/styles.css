@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --primary:#F24109;
+    --secondary:#1D243E;
+    --secondary-85:rgba(29,36,62,0.85);
+    --white:#fff;
+    --light-grey:#f3f3f3;
+    --grey:#ccc;
+    --dark-grey:#666;
+    --dark2-grey:#333;
+    --dark3-grey:#222;
+    --black:#000;
+    --white-50:rgba(255,255,255,0.5);
+    --black-50:rgba(0,0,0,0.5);
+
+    --font:'Nunito', sans-serif;
+}
+
+html{
+    font-family: var(--font) !important;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 120rem !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, a{
+    font-family: var(--font) !important;
+}
+h1, h2, h3{
+    font-weight: 700 !important;
+}
+h4, h5, h6, p, a{
+    font-weight: 400 !important;
+}
+a{
+    color: var(--secondary);
+}
+.btn {
+    color: var(--white) !important;
+    background-color: var(--primary) !important;
+}
+.btn:hover {
+    background-color: var(--grey) !important;
+    color: var(--dark3-grey) !important;
+}
+.fa-solid{
+    color: var(--primary);
+}
+
+.background-grey{
+    background-color: var(--light-grey);
+}
